@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mercado;
+use App\Models\Produtos;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
-class MercadoController extends Controller
+class ProdutosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // Buscando todos os registros do modelo Mercado
-        $registros = Mercado::all();
+        // Buscando todos os registros do modelo Produtos
+        $registros = Produtos::all();
 
         // Contando o número de registros
         $contador = $registros->count();
@@ -59,7 +59,7 @@ class MercadoController extends Controller
         }
 
         // Criando um registro no banco de dados
-        $registro = Mercado::create($request->all());
+        $registro = Produtos::create($request->all());
 
         if ($registro) {
             return response()->json([
@@ -81,7 +81,7 @@ class MercadoController extends Controller
     public function show($id)
     {
         // Buscando um produto pelo ID
-        $registro = Mercado::find($id);
+        $registro = Produtos::find($id);
 
         // Verificando se o produto foi encontrado
         if ($registro) {
@@ -118,7 +118,7 @@ class MercadoController extends Controller
         }
 
         // Encontrando o registro no banco
-        $registroBanco = Mercado::find($id);
+        $registroBanco = Produtos::find($id);
 
         if (!$registroBanco) {
             return response()->json([
@@ -153,7 +153,7 @@ class MercadoController extends Controller
     public function destroy($id)
     {
         // Encontrando um produto no banco
-        $registro = Mercado::find($id);
+        $registro = Produtos::find($id);
 
         if (!$registro) {
             return response()->json([

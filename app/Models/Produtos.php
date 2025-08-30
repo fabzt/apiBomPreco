@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mercado extends Model
+class Produtos extends Model
 {
     protected $fillable = [
-        'name',
+        'nome',
         'preco',
         'marca',
     ];
